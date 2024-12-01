@@ -2,12 +2,20 @@
 const button = document.getElementById('ask-button');
 const ball = document.getElementById('magic-ball');
 const responseTriangle = document.getElementById('response-triangle');
+const questionInput = document.getElementById('question-input');
+
+// Event listener for "Enter" key press
+questionInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        button.click();
+    }
+});
 
 // Event listener for button click
 button.addEventListener('click', async () => {
-    const question = document.getElementById('question-input').value.trim();
+    const question = questionInput.value.trim();
 
-    // Check if user entered a question and display an alert to prompt user to a ask a question
+    // Check if user entered a question and display an alert to prompt user to ask a question
     if (!question) {
         alert('Please ask a question!');
         return;
@@ -17,9 +25,8 @@ button.addEventListener('click', async () => {
     responseTriangle.style.opacity = '0';
 
     // Shake animation reset
-    ball.classList.remove('shake');  
-
-    void ball.offsetWidth;
+    ball.classList.remove('shake');
+    void ball.offsetWidth; // Force reflow to restart animation
 
     // Apply shake animation
     ball.classList.remove('bobbing');
@@ -30,7 +37,7 @@ button.addEventListener('click', async () => {
             // Change the image to the back of the 8 Ball
             ball.src = 'assets/8ball_back_pixel.png';
 
-            // Added random string to generate another unique API answer even without changing the question
+            // Add random string to generate another unique API answer even without changing the question
             let encodedQuestion = encodeURIComponent(question + getRandomString());
 
             // API URLs
@@ -42,9 +49,9 @@ button.addEventListener('click', async () => {
             const data = await response.json();
             const apiResponse = data.contents;
 
-           // Handle missing response
+            // Handle missing response
             if (!apiResponse) {
-                handleError(null); 
+                handleError(null);
                 return;
             }
 
@@ -59,7 +66,7 @@ button.addEventListener('click', async () => {
             responseTriangle.classList.add('bobbing');
 
         } catch (error) {
-            handleError(error); 
+            handleError(error);
         }
 
         // Reset the shake animation
@@ -77,7 +84,7 @@ function getRandomString() {
     return result;
 }
 
-// Create funtion for errors
+// Function to handle errors
 function handleError(error) {
     responseTriangle.style.opacity = '0';
     ball.src = 'assets/8ball_back_pixel.png';
