@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Magic 8 Ball</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Ask the Magic 8 Ball</h1>
+        <input type="text" id="question-input" placeholder="Type your question...">
+        <button id="ask-button">Ask</button>
+        <div id="ball-container">
+            <div class="ball-wrapper">
+                <img id="magic-ball" src="assets/8ball_pixel.png" alt="Magic 8 Ball" class="bobbing">
+                <div id="response-triangle"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
