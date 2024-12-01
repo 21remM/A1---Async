@@ -11,7 +11,13 @@
     <div class="container">
         <h1>Ask the Magic 8 Ball</h1>
         <input type="text" id="question-input" placeholder="Type your question...">
-        <button id="ask-button">Ask</button>
+
+        <!-- Single input with two buttons -->
+        <div class="button-container">
+            <button id="ask-button">Ask</button>
+            <button id="biased-button">I'm feeling lucky.</button>
+        </div>
+
         <div id="ball-container">
             <div class="ball-wrapper">
                 <img id="magic-ball" src="assets/8ball_pixel.png" alt="Magic 8 Ball" class="bobbing">

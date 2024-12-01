@@ -1,3 +1,4 @@
+/* General Body Styles */
 body {
     font-family: 'Press Start 2P', sans-serif;
     text-align: center;
@@ -8,16 +9,19 @@ body {
     padding: 0;
 }
 
+/* Container for the content */
 .container {
     margin-top: 150px;
     padding: 20px;
     text-align: center;
 }
 
+/* Header */
 h1 {
     margin-bottom: 20px;
 }
 
+/* Input Styles for Question Field */
 #question-input {
     padding: 15px;
     width: 300px;
@@ -32,6 +36,7 @@ h1 {
     text-align: center;
 }
 
+/* Button Styles */
 #ask-button {
     padding: 15px 30px;
     background-color: #007BFF;
@@ -49,6 +54,33 @@ h1 {
     border-color: #0056b3;
 }
 
+/* Button Container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Adds space between the buttons */
+    margin-top: 20px;
+}
+
+/* Biased Button Styles */
+#biased-button {
+    padding: 15px 30px;
+    background-color: #FF6347; /* Tomato color */
+    color: white;
+    border: 2px solid #FF6347;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 16px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+#biased-button:hover {
+    background-color: #CC4F39;
+    border-color: #CC4F39;
+}
+
+/* Ball Container */
 #ball-container {
     margin-top: 5px;
     position: relative;
@@ -58,14 +90,16 @@ h1 {
     height: 500px; 
 }
 
+/* Magic 8 Ball Image Styles */
 #magic-ball {
     width: 500px;
     height: 500px;
     transition: transform 0.5s ease-in-out;
     z-index: 1;
 }
+
 #magic-ball.bobbing {
-    position: absolute
+    position: absolute;
 }
 
 #response-triangle {
@@ -83,9 +117,10 @@ h1 {
     justify-content: center;
     z-index: 2;
     opacity: 0;
-    transition: all 200ms
+    transition: all 200ms;
 }
 
+/* Animation for the bobbing effect */
 .bobbing {
     animation: bobbing-text 3s infinite ease-in-out;
 }
@@ -95,6 +130,7 @@ h1 {
     50% { transform: translate(-50%, -50%) translateY(-10px); }
 }
 
+/* Shake animation for the ball */
 .shake {
     animation: shake 0.5s ease-in-out;
 }
@@ -106,6 +142,7 @@ h1 {
     75% { transform: rotate(5deg); }
 }
 
+/* Bounce animation */
 @keyframes bobbing {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
